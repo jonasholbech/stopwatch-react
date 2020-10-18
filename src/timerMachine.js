@@ -20,6 +20,7 @@ export const createTimerMachine = (duration, options) => {
     {
       id: "timer",
       initial: "idle",
+      strict: true,
       context: {
         duration,
         elapsed: 0,
@@ -27,7 +28,7 @@ export const createTimerMachine = (duration, options) => {
       },
       on: {
         RESET: {
-          target: ".idle",
+          target: "idle",
         },
         ADD_TIME: {
           actions: assign({
@@ -46,7 +47,6 @@ export const createTimerMachine = (duration, options) => {
           }),
           on: {
             TOGGLE: "running",
-            RESET: undefined,
           },
         },
         running: {
