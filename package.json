@@ -1,6 +1,6 @@
 {
   "name": "stopwatch-react",
-  "homepage": "https://jonasholbech.github.io/stopwatch-react/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
