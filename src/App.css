@@ -1,5 +1,5 @@
 :root {
-  --color-background: #202124;
+  --color-background: transparent; /* #202124;*/
   --color-text: white;
   --color-primary: #5192e6;
   --color-primary-light: hsl(214.5, 65.8%, 78.2%);
