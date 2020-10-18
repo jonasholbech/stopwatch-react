@@ -40,39 +40,41 @@ function App() {
         "--interval": interval,
       }}
     >
-      <svg
-        class="timer-circle"
-        viewBox="0 0 100 100"
-        width="100"
-        height="100"
-        fill="none"
-      >
-        <circle r="40" cx="50" cy="50" pathLength="1"></circle>
-        <circle
-          className="progress"
-          r="40"
-          cx="50"
-          cy="50"
-          pathLength="1"
-        ></circle>
-      </svg>
-      <div className="display">
-        <div className="state faded">{state.toStrings().slice(-1)}</div>
-        <div className="timer">{getTime()}</div>
-        <div className="addtime">
-          <button onClick={() => send({ type: "ADD_TIME", amount: 1 })}>
-            +1
-          </button>
-          <button onClick={() => send({ type: "ADD_TIME", amount: 10 })}>
-            +10
-          </button>
-          <button
-            className="actions"
-            disabled={state.matches("running")}
-            onClick={() => send("RESET")}
-          >
-            Reset
-          </button>
+      <div className="timerwrapper">
+        <svg
+          class="timer-circle"
+          viewBox="0 0 100 100"
+          width="100"
+          height="100"
+          fill="none"
+        >
+          <circle r="40" cx="50" cy="50" pathLength="1"></circle>
+          <circle
+            className="progress"
+            r="40"
+            cx="50"
+            cy="50"
+            pathLength="1"
+          ></circle>
+        </svg>
+        <div className="display">
+          <div className="state faded">{state.toStrings().slice(-1)}</div>
+          <div className="timer">{getTime()}</div>
+          <div className="addtime">
+            <button onClick={() => send({ type: "ADD_TIME", amount: 1 })}>
+              +1
+            </button>
+            <button onClick={() => send({ type: "ADD_TIME", amount: 10 })}>
+              +10
+            </button>
+            <button
+              className="actions"
+              disabled={state.matches("running")}
+              onClick={() => send("RESET")}
+            >
+              Reset
+            </button>
+          </div>
         </div>
       </div>
       <div id="controls">
