@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useMachine } from "@xstate/react";
 import { createTimerMachine } from "./timerMachine";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
@@ -17,6 +17,18 @@ function App() {
       },
     },
   });
+  useEffect(() => {
+    //element.style.setProperty("--my-var", jsVar + 4);
+    let urlParams = new URLSearchParams(window.location.search);
+    let transparent = urlParams.get("transparent");
+    console.log(transparent);
+    if (transparent) {
+      document.documentElement.style.setProperty(
+        "--color-background",
+        "transparent"
+      );
+    }
+  }, []);
   const [state, send] = useMachine(timerMachine);
   const { duration, elapsed, interval } = state.context;
 
