@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   const audioEl = useRef(null);
-  const timerMachine = createTimerMachine(60, {
+  const timerMachine = createTimerMachine(Number( new URLSearchParams(window.location.search).get("time")) || 60, {
     actions: {
       playSound: (ctx, evt) => {
         audioEl.current.play();
